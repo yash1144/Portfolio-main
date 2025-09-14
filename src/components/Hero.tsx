@@ -1,21 +1,25 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Download, Github, Linkedin, Mail, Phone } from "lucide-react";
-import heroBg from "@/assets/hero-bg.jpg";
 import avatarPlaceholder from "@/assets/avatar-placeholder.jpg";
 
 const Hero = () => {
+    const scrollToProjects = () => {
+        const element = document.querySelector('#projects');
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-            {/* Background Image */}
-            <div
-                className="absolute inset-0 z-0"
-                style={{
-                    backgroundImage: `url(${heroBg})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                }}
-            >
-                <div className="absolute inset-0 bg-black/40" />
+            {/* Clean Theme Background */}
+            <div className="absolute inset-0 z-0 bg-gradient-to-br from-primary via-primary-variant to-primary">
+                {/* Subtle overlay for depth */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+
+                {/* Simple accent highlight */}
+                <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-accent/10 rounded-full blur-3xl"></div>
+                <div className="absolute bottom-1/4 left-1/4 w-48 h-48 bg-accent/5 rounded-full blur-2xl"></div>
             </div>
 
             {/* Hero Content */}
@@ -31,7 +35,7 @@ const Hero = () => {
                     </div>
 
                     {/* Name and Title */}
-                    <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
+                    <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight text-white">
                         Yash Lad
                     </h1>
                     <h2 className="text-2xl md:text-3xl text-white/90 mb-8 font-light">
@@ -46,7 +50,7 @@ const Hero = () => {
 
                     {/* CTA Buttons */}
                     <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-                        <Button variant="hero" size="lg" className="group">
+                        <Button variant="hero" size="lg" className="group" onClick={scrollToProjects}>
                             View My Work
                             <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                         </Button>
@@ -67,7 +71,7 @@ const Hero = () => {
                             href="https://github.com/yash1144"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="p-3 bg-white/10 backdrop-blur-sm rounded-full hover:bg-white/20 transition-all duration-300 hover:scale-110"
+                            className="p-3 bg-white/10 backdrop-blur-sm rounded-full hover:bg-white/20 transition-colors"
                             aria-label="GitHub Profile"
                         >
                             <Github className="h-6 w-6" />
@@ -76,21 +80,21 @@ const Hero = () => {
                             href="https://www.linkedin.com/in/yash-lad-432386315?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="p-3 bg-white/10 backdrop-blur-sm rounded-full hover:bg-white/20 transition-all duration-300 hover:scale-110"
+                            className="p-3 bg-white/10 backdrop-blur-sm rounded-full hover:bg-white/20 transition-colors"
                             aria-label="LinkedIn Profile"
                         >
                             <Linkedin className="h-6 w-6" />
                         </a>
                         <a
                             href="mailto:Ladyash1144@gmail.com"
-                            className="p-3 bg-white/10 backdrop-blur-sm rounded-full hover:bg-white/20 transition-all duration-300 hover:scale-110"
+                            className="p-3 bg-white/10 backdrop-blur-sm rounded-full hover:bg-white/20 transition-colors"
                             aria-label="Email Contact"
                         >
                             <Mail className="h-6 w-6" />
                         </a>
                         <a
                             href="tel:7069955444"
-                            className="p-3 bg-white/10 backdrop-blur-sm rounded-full hover:bg-white/20 transition-all duration-300 hover:scale-110"
+                            className="p-3 bg-white/10 backdrop-blur-sm rounded-full hover:bg-white/20 transition-colors"
                             aria-label="Phone Contact"
                         >
                             <Phone className="h-6 w-6" />
